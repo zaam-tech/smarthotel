@@ -1,0 +1,39 @@
+language: generic
+
+sudo: required
+
+services:
+  - docker
+
+env:
+  global:
+    - SHA=$(git rev-parse HEAD)
+    - CLOUDSDK_CORE_DISABLE_PROMPTS=1
+
+before_install:
+  # - openssl aes-256-cbc -K $encrypted_9f3b5599b056_key -iv $encrypted_9f3b5599b056_iv -in service-account.json.enc -out service-account.json -d
+  # - curl https://sdk.cloud.google.com | bash >/dev/null;
+  # - source $HOME/google-cloud-sdk/path.bash.inc
+  # - gcloud components update kubectl
+  # - gcloud auth activate-service-account --key-file service-account.json
+  # - gcloud config set project smart-hotel-303108
+  # - gcloud config set compute/zone us-central1-c
+  # - gcloud container clusters get-credentials smarthotel-cluster
+  # kubectl create secret generic pgpassword --from-literal PGPASSWORD=amaljamal
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+#   # - docker build -t shamirj/smarthotel -f
+
+# script:
+  # - docker run -e CI=true shamirj/docker-react npm run test -- --coverage
+
+deploy:
+  provider: script
+  script: bash ./deploy.sh
+  on:
+    branch: master
+  # location /sockjs-node {
+    #     proxy_pass http://smarthotel-client;
+    #     # proxy_http_version 1.1;
+    #     # proxy_set_header Upgrade $http_upgrade;
+    #     # proxy_set_header Connection "Upgrade";
+    # }
