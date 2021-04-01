@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4a7ed3f2-02f8-4b40-8bb8-059cac441cfb" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/assets/mixins/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/mixins/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/AppBar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/AppBar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/AppHome.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/AppHome.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/AppPopup.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/AppPopup.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/TheSignupForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/TheSignupForm.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interfaces/UserExtend.ts" beforeDir="false" afterPath="$PROJECT_DIR$/interfaces/UserExtend.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nuxt.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/nuxt.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/login.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/signup.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/signup.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/login.ts" beforeDir="false" afterPath="$PROJECT_DIR$/store/login.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/signup.ts" beforeDir="false" afterPath="$PROJECT_DIR$/store/signup.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1jW0hWy0Nmi7KMHfrfxzLgWlcd3" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4a7ed3f2-02f8-4b40-8bb8-059cac441cfb" name="Default Changelist" comment="" />
+      <created>1603904659539</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1603904659539</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="119" y="28" key="SettingsEditor" timestamp="1603989710541">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="119" y="28" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1603989710541" />
+    <state x="354" y="210" key="com.intellij.ide.util.TipDialog" timestamp="1603989392681">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="354" y="210" key="com.intellij.ide.util.TipDialog/0.0.1366.768@0.0.1366.768" timestamp="1603989392681" />
+  </component>
+</project>

@@ -1,0 +1,549 @@
+/*Flex mixins*/
+
+@mixin flex {
+  display: flex;
+}
+
+@mixin grid {
+  display: grid;
+}
+
+@mixin flexCenter {
+  @include flex;
+  justify-content: center;
+}
+
+@mixin sans_style {
+  font-family: var(--sans);
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+@mixin sans_big {
+  text-transform: uppercase;
+  font-family: var(--sans);
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-size: 20px;
+}
+
+@mixin flexCenterVariant {
+  @include flex;
+  align-items: center;
+}
+
+@mixin button {
+  margin: 1.5em 0;
+  padding: 10px 15px;
+  border-radius: 2px;
+  width: 80%;
+  background: var(--light_grey);
+  border: 1px solid #d9d9d9;
+  cursor: pointer;
+  &:focus {
+    outline: none;
+  }
+}
+
+@mixin card {
+  padding: 1em 1.5em;
+  border-radius: 20px;
+  background: var(--white);
+  color: var(--dark);
+  font-family: var(--open);
+}
+
+@mixin flexSpaceAround {
+  @include flex;
+  justify-content: space-around;
+}
+
+@mixin col {
+  flex-direction: column;
+}
+
+@mixin center {
+  align-items: center;
+}
+
+@mixin shadow {
+  box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.2);
+}
+
+@mixin shadowVariant {
+  box-shadow: 0 5px 15px 5px rgba($color: #000000, $alpha: 0.1);
+}
+
+@mixin centerVariant {
+  justify-content: center;
+}
+
+@mixin flexCenterBoth {
+  @include flexCenter;
+  align-items: center;
+}
+
+@mixin flexSpace {
+  @include flex;
+  justify-content: space-between;
+}
+
+@mixin flexCol {
+  @include flex;
+  flex-direction: column;
+}
+
+@mixin flexColCenter {
+  @include flexCol;
+  align-items: center;
+}
+
+@mixin flexColCenterBoth {
+  @include flexColCenter();
+  justify-content: center;
+}
+
+/*Position Mixins*/
+
+@mixin absolute {
+  position: absolute;
+}
+
+@mixin relative {
+  position: relative;
+}
+
+@mixin btn {
+  border-radius: 3px !important;
+  border: none;
+  color: var(--white);
+  padding: 10px 30px;
+  letter-spacing: 2px;
+  font-size: 15px;
+  line-height: 10px;
+  font-family: var(--open);
+  background: var(--primary);
+  transition: all 0.4s ease 0s;
+  cursor: pointer;
+  text-transform: unset;
+  &::first-letter {
+    text-transform: uppercase;
+  }
+  text-align: center;
+  height: 30px !important;
+
+  &:hover {
+    background: #0251f0;
+    cursor: pointer;
+    transition: all 0.4ms;
+  }
+
+  &:focus {
+    outline: none !important;
+  }
+}
+
+@mixin btn-variant {
+  background: var(--green);
+  padding: 12px 30px;
+  color: var(--white);
+  border-radius: 5px;
+  font-family: var(--open);
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  border: none;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+@mixin btn-new {
+  height: 30px;
+  @include flexCenterBoth;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: var(--secondary);
+  color: var(--white) !important;
+  padding: 0 30px;
+  border-radius: 4px;
+  border: none;
+  transition: all 180ms ease-out 0s;
+
+  &:hover {
+    background-color: rgb(86, 156, 255);
+    cursor: pointer;
+    transition: all 0.4ms;
+  }
+}
+
+@mixin btn-grey {
+  padding: 10px 30px;
+  color: var(--black) !important;
+  background: var(--light_grey);
+  min-width: 170px;
+  box-shadow: inset 10px #d9d9d97e;
+  letter-spacing: 1px;
+  line-height: 0.5;
+  font-size: 15px;
+  font-family: var(--open);
+  text-transform: capitalize;
+  text-align: center;
+  border: 1px solid var(--grey);
+  border-radius: 2px;
+  background: var(--light_grey);
+  height: 30px !important;
+  transition: 0.3s linear;
+  &:hover {
+    cursor: pointer;
+    background: #e2e3e4;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+@mixin custom-select {
+  @include relative;
+  select {
+    font-size: 1em;
+    padding: 0 5px 0 0 !important;
+    height: 30px !important;
+    background: var(--light_grey);
+    border-radius: 2px !important;
+    border: 1px solid var(--grey);
+    width: 100%;
+    font-family: var(--open);
+    margin-top: 10px;
+    &:focus {
+      outline: none;
+    }
+  }
+  .custom-arrow {
+    @include absolute;
+    top: 38%;
+    right: 1%;
+    background: var(--light_grey);
+    height: 50%;
+    width: 2em;
+    pointer-events: none;
+    z-index: 1;
+    color: var(--dark);
+    &::before,
+    &::after {
+      content: '';
+      left: 50%;
+
+      transform: translate(-50%);
+      @include absolute;
+      width: 0;
+      height: 0;
+      --size: 0.3em;
+    }
+    &::before {
+      top: 12%;
+      border-right: var(--size) solid transparent;
+      border-left: var(--size) solid transparent;
+      border-bottom: var(--size) solid var(--black);
+    }
+    &::after {
+      top: 48%;
+      border-right: var(--size) solid transparent;
+      border-left: var(--size) solid transparent;
+      border-top: var(--size) solid var(--black);
+    }
+  }
+}
+@mixin custom-select-variant {
+  @include custom-select;
+  width: 200px;
+  select {
+    padding: 0 0 0 8px !important;
+  }
+  .custom-arrow {
+    top: 30%;
+    height: 50%;
+    &:before {
+      display: none;
+    }
+    &:after {
+      content: '\e64b';
+      font-family: 'themify';
+      border-width: 5px;
+      border-style: solid;
+      border-color: transparent;
+      display: inline-block;
+      top: 5%;
+      left: 10%;
+    }
+  }
+}
+@mixin form {
+  width: 90%;
+  max-width: 400px;
+  background: var(--white);
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  @include flexCol;
+  @include relative;
+  padding: 1.5em;
+  font-family: var(--open);
+  font-size: 1em;
+  .heading {
+    @include heading;
+  }
+  h1 {
+    margin: 0.5rem 0;
+    @include h2;
+  }
+
+  h2 {
+    margin-left: 20px;
+    margin-bottom: 0.5rem;
+    @include h5;
+    text-transform: capitalize !important;
+  }
+  label {
+    @include label;
+  }
+  .info-text {
+    margin: 10px 0;
+    color: var(--charcoal);
+    width: 100%;
+  }
+
+  .input-group {
+    @include relative;
+    @include flexCol;
+  }
+  .inputs {
+    @include flexSpace;
+    flex-wrap: wrap;
+    .input-group {
+      width: 49%;
+    }
+    .input-group:nth-child(even) {
+      margin-left: 1%;
+    }
+  }
+  .alert {
+    @include flex;
+    background-color: #fdfdfd;
+    border: 1px solid #ccc;
+    padding: 1em;
+    margin: 1em 0;
+    border-radius: 10px;
+    .material-icons {
+      color: var(--secondary);
+      margin-right: 1em;
+    }
+  }
+  span {
+    color: var(--primary);
+    cursor: pointer;
+  }
+
+  .mb {
+    margin: 10px 0;
+  }
+
+  .input {
+    margin-top: 10px;
+    width: 100%;
+    color: #303;
+    border-radius: 2px;
+    border: 1px solid var(--grey);
+    padding: 6px;
+    font-family: var(--open);
+    font-size: 15px;
+    height: 30px !important;
+  }
+  .input-field {
+    margin-bottom: 5px;
+    padding: 3px 7px;
+    border-radius: 5px;
+    height: 27px;
+    border: 1px solid #ddd;
+    font-family: var(--open);
+    color: var(--charcoal);
+    font-size: 15px;
+    letter-spacing: 1px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .close {
+    @include absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    color: #0055ff;
+  }
+
+  .input:focus {
+    outline: none;
+  }
+
+  .input-group .material-icons {
+    @include absolute;
+    top: 8px;
+    left: 15px;
+    color: #0055ff;
+  }
+  .phone {
+    @include flexCenterVariant;
+    margin-top: 10px;
+    .input {
+      margin: 0 !important;
+    }
+    .btn {
+      margin: 0;
+      margin-left: 10px;
+    }
+  }
+  .contact {
+    @include flexSpace;
+    .input:nth-child(2) {
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+  }
+  .btn {
+    width: 100%;
+    @include btn;
+    margin-top: 10px;
+    align-self: center;
+    padding: 10px 30px !important;
+  }
+
+  .invalid.input {
+    border: 1px solid var(--red);
+  }
+  .valid.input {
+    border: 1px solid var(--green);
+  }
+
+  .error {
+    color: var(--red);
+    margin: 5px 0;
+    font-family: var(--source);
+    font-size: 14px;
+  }
+
+  .disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+    background: var(--grey);
+  }
+
+  .success {
+    color: var(--green);
+    margin: 5px 0;
+    font-family: var(--open);
+    font-size: 13px;
+  }
+
+  .pass {
+    @include flexSpace;
+  }
+
+  .pass span {
+    font-size: 14px;
+    font-weight: bold;
+  }
+}
+
+@mixin form-variant {
+  @include form();
+  box-shadow: none !important;
+  border: 1px solid #dfdfe0 !important;
+  border-radius: 5px !important;
+}
+
+@mixin headers {
+  h1 {
+    @include h2;
+    font-size: 1.3em;
+    margin-bottom: 1em;
+    text-transform: unset;
+  }
+
+  h2 {
+    @include h5;
+    font-weight: normal;
+  }
+  .bold {
+    font-weight: bold;
+  }
+}
+
+@mixin li {
+  text-transform: uppercase;
+  font-size: 0.65rem;
+  letter-spacing: 1px;
+  font-weight: bold;
+  font-family: var(--open);
+}
+
+@mixin h4 {
+  letter-spacing: 0.0625rem;
+  color: #8898aa !important;
+  text-transform: uppercase !important;
+  margin-bottom: 0.25rem !important;
+  font-size: 0.625rem;
+  font-weight: 600;
+  line-height: 1.5;
+  font-family: var(--open);
+}
+
+@mixin heading {
+  @include h2;
+  margin-bottom: 1.5em;
+  .name {
+    font-weight: bold;
+    margin-right: 0.5em;
+  }
+  font-size: 1.3em !important;
+}
+
+@mixin h2 {
+  font-size: 1.5em;
+  font-family: var(--source);
+  font-weight: normal;
+  text-transform: capitalize;
+}
+
+@mixin h2_variant {
+  color: var(--dark-grey);
+  font-size: 1.1em;
+  text-transform: uppercase;
+  font-family: var(--open);
+}
+
+@mixin h5 {
+  letter-spacing: 0.0625em;
+  text-transform: unset !important;
+  color: var(--dark_grey);
+  margin-bottom: 0.5em !important;
+  font-size: 1em;
+}
+
+@mixin h6 {
+  font-size: 0.95em;
+}
+
+@mixin label {
+  text-transform: unset !important;
+  font-size: 1em;
+  font-family: var(--open);
+}
+
+@mixin rounded {
+  border-radius: 50%;
+}

@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: smarthotel-client-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: smarthotel-client
+  template:
+    metadata:
+      labels:
+        component: smarthotel-client
+    spec:
+      containers:
+        - name: smarthotel-client
+          image: shamirj/smarthotel-client
+          ports:
+            - containerPort: 5000
+          
+

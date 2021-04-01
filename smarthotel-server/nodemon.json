@@ -1,0 +1,10 @@
+{
+    "env": {
+        "MONGO_USER": "Amal",
+        "MONGO_PASSWORD": "shamirjamal",
+        "MONGO_DEFAULT_DATABASE": "smarthotel",
+        "GEOCODER_PROVIDER" : "google",
+        "GEOCODER_API_KEY" : "AIzaSyByYqRGmyWK1q67Um3U_XKYd-bX2m-RbII"
+    }
+}
+

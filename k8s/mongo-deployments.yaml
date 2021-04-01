@@ -1,0 +1,140 @@
+
+# # In my code in nodejs used dbUri= 'mongodb://username:password' + process.env.MONGO_URL +'/database-name'
+
+# # Here is the cluster ip service config
+
+# # kind: Service
+# # apiVersion: v1
+# # metadata:
+# #   name: mongo-cluster-ip-service
+# # spec:
+# #   type: ClusterIP
+# #   ports:
+# #   - port: 27017
+# #     targetPort: 27017
+
+# ---
+# # then I have the endpoints for the same service
+
+# # kind: Endpoints
+# # apiVersion: v1
+# # metadata:
+# #   name: mongo-cluster-ip-service
+# # subsets:
+# #   - addresses:
+# #     - ip: 35.187.27.116
+# #     ports:
+# #     - port: 27017
+# #   - addresses:
+# #     - ip: 35.241.213.79
+# #     ports:
+# #     - port: 27017
+# #   - addresses:
+# #     - ip: 104.155.120.154
+# #     ports:
+# #     - port: 27017
+
+# ---
+
+# Then I have my deployment which wants to use it for the pods through an env variable
+
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: user-reg-auth-deployment
+# spec:
+#   replicas: 3
+#   selector:
+#     matchLabels:
+#       app: user-reg-auth
+#   template:
+#     metadata:
+#       labels:
+#         app: user-reg-auth
+#     spec:
+#       imagePullSecrets:
+#         - name: ofinowregcred # this is a manually applied secret to the cluster using kubectl create secret
+#       containers:
+#       - name: user-reg-auth
+#         image: ofinow/user-reg-auth
+#         ports:
+#         - containerPort: 8080
+#         dnsPolicy: Default
+#         # resources:
+#         #   requests:
+#         #     memory: "64Mi"
+#         #     cpu: "250m"
+#         #   limits:
+#         #     memory: "128Mi"
+#         #     cpu: "500m"
+#         env:
+#           - name: MONGO_URL
+#             value: mongo-cluster-ip-service
+
+# # Under the pod spec of your k8s pod (or deployment) manifest, add a dnsPolicy field with value set to Default. Hence, your Pods (your container basically) will connect to mongo through the name resolution configuration of the master node.
+
+# ---
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: postgres-cluster-ip-service
+# spec:
+#   type: ClusterIP
+#   selector:
+#     component: postgres
+#   ports:
+#     - port: 5432
+#       targetPort: 5432
+# ---
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: mongo
+# spec:
+#   type: ExternalName
+#   externalName: hjhjhgkjkjkjkkk
+# ---
+# kind: Endpoints
+# apiVersion: v1
+# metadata:
+#   name: mongo
+# subsets:
+#   - address:
+#       - ip: 10.240.0.4
+#     ports:
+#       - port: 27017
+
+# ---
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: postgres-deployment
+# spec:
+#   replicas: 1
+#   selector:
+#     matchLabels:
+#       component: postgres
+#   template:
+#     metadata:
+#       labels:
+#         component: postgres
+#     spec:
+#       volumes:
+#         - name: postgres-storage
+#           persistentVolumeClaim:
+#             claimName: database-persistent-volume-claim
+#       containers:
+#         - name: postgres
+#           image: postgres
+#           ports:
+#             - containerPort: 5432
+#           volumeMounts:
+#             - name: postgres-storage
+#               mountPath: /var/lib/postgresql/data
+#               subPath: postgres
+#           env:
+#             - name: POSTGRES_PASSWORD
+#               valueFrom:
+#                 secretKeyRef:
+#                   name: pgpassword
+#                   key: PGPASSWORD

@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: smarthotel-qrcode-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: smarthotel-qrcode
+  template:
+    metadata:
+      labels:
+        component: smarthotel-qrcode
+    spec:
+      containers:
+        - name: smarthotel-qrcode
+          image: shamirj/smarthotel-qrcode
+          # env:
+          #   - name: REDIS_HOST
+          #     value: redis-cluster-ip-service
+          #   - name: REDIS_PORT
+          #     value: "6379"
+# client connent 

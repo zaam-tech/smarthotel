@@ -1,0 +1,54 @@
+{
+  "name": "smarthotelbackend",
+  "version": "1.0.0",
+  "description": "Smart Hotel Backend built on graphql API",
+  "main": "app.js",
+  "scripts": {
+    "start": "NODE_ENV=production MONGO_USER=Amal MONGO_PASSWORD=shamirjamal MONGO_DEFAULT_DATABASE=smarthotel node app.js",
+    "start-server": "node app.js",
+    "start:de": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zaam-inc/smarthotelbackend.git"
+  },
+  "author": "Zaam Technologies Group",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zaam-inc/smarthotelbackend/issues"
+  },
+  "homepage": "https://github.com/zaam-inc/smarthotelbackend#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.832.0",
+    "axios": "^0.21.1",
+    "bcryptjs": "^2.4.3",
+    "cloudinary": "^1.23.0",
+    "cors": "^2.8.5",
+    "date-and-time": "^0.14.2",
+    "dotenv": "^8.2.0",
+    "electron-pos-printer": "^1.2.4",
+    "express": "^4.17.1",
+    "express-graphql": "^0.12.0",
+    "express-validator": "^6.9.2",
+    "fs": "^0.0.1-security",
+    "generate-unique-id": "^2.0.1",
+    "geocoder": "^0.2.3",
+    "graphql": "^15.5.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.11.13",
+    "multer": "^1.4.2",
+    "multer-s3": "^2.9.0",
+    "node-geocoder": "^3.27.0",
+    "node-thermal-printer": "^4.1.2",
+    "nodemailer": "^6.4.17",
+    "nodemailer-sendgrid-transport": "^0.2.0",
+    "otp-generator": "^2.0.0",
+    "pdfkit": "^0.11.0",
+    "print-js": "^1.5.0",
+    "socket.io": "^3.1.0",
+    "validator": "^13.5.2"
+  }
+}

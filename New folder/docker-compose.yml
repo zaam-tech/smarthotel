@@ -1,0 +1,45 @@
+# version: '3'
+# services: 
+#   postgres:
+#     image: 'post'
+#   redis: 
+#     image: 'redis:latest'
+
+#   nginx:
+#     restart: always
+#     build: 
+#       dockerfile: Dockerfile.dev
+#       context: ./nginx
+#     ports: 
+#       - '3050:80'
+#   smarthotel-server:
+#     build: 
+#       dockerfile: Dockerfile.dev
+#       context: ./smarthotel-server
+#     volumes: 
+#       - /app/node_modules
+#       - ./smarthotel-server/app
+#     environment: 
+#       - REDIS_HOST=redis
+#       - REDIS_PORT=6379
+#   smarthotel-client:
+#     build: 
+#       dockerfile: Dockerfile.dev
+#       context: ./smarthotel-client/app
+#     volumes: 
+#       - /app/node_modules
+#       - ./smarthotel-client/app
+#     environment: 
+#       - REDIS_HOST=redis
+#       - REDIS_PORT=6379
+#   smarthotel-qrcode:
+#     build: 
+#       dockerfile: Dockerfile.dev
+#       context: ./smarthotel-qrcode/app
+#     volumes: 
+#       - /app/node_modules
+#       - ./smarthotel-qrcode/app
+#     environment: 
+#       - REDIS_HOST=redis
+#       - REDIS_PORT=6379
+

@@ -1,0 +1,18 @@
+# # then I have the endpoints for the same service
+# kind: Endpoints
+# apiVersion: v1
+# metadata:
+#   name: mongo-cluster-ip-service
+# subsets:
+#   - addresses:
+#     - ip: 35.187.27.116
+#     ports:
+#     - port: 27017
+#   - addresses:
+#     - ip: 35.241.213.79
+#     ports:
+#     - port: 27017
+#   - addresses:
+#     - ip: 104.155.120.154
+#     ports:
+#     - port: 27017

@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: shamirjamal
+  api_key: '827242541292457'
+  api_secret: w2M06TmcDHkj1CCQTbSJRE56b5c
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: shamirjamal
+  api_key: '827242541292457'
+  api_secret: w2M06TmcDHkj1CCQTbSJRE56b5c
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: shamirjamal
+  api_key: '827242541292457'
+  api_secret: w2M06TmcDHkj1CCQTbSJRE56b5c
+  enhance_image_tag: true
+  static_file_support: false
