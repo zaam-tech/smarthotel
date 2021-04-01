@@ -30,7 +30,7 @@ deploy:
   provider: script
   script: bash ./deploy.sh
   on:
-    branch: master
+    branch: main
   # location /sockjs-node {
     #     proxy_pass http://smarthotel-client;
     #     # proxy_http_version 1.1;
